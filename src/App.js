@@ -15,10 +15,11 @@ import './App.css';
 
 const App = () => {
   return (
-    <>
-      <div className='  '>
+    <div div className=' h-screen bg-slate-800'>
+      <div className=' '>
         <Header />
       </div>
+      
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/maruti-fronx-price-in-hyderabad' element={<Fornx />} />
@@ -43,7 +44,7 @@ const App = () => {
         <Route exact path='/*' element={<div>No page found </div>} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 };
 
