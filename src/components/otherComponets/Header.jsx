@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import {
+  AiOutlineMenu,
+  AiOutlineClose,
+  AiOutlineRightCircle,
+} from 'react-icons/ai';
 // import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 
 import JimnyImg from '../../assets/2019-Suzuki-Jimny-1.png';
@@ -154,7 +158,7 @@ const Header = () => {
         </div>
         {!veh && (
           <div
-            className=' bg-red-500 h-1   '
+            className=' bg-gray-100 h-0.5   '
             style={{ width: `${scrollTop}%` }}
           ></div>
         )}
@@ -162,33 +166,63 @@ const Header = () => {
         {veh && (
           <div
             className='w-full grid  border-gray-200 duration-150 -mt-6  '
-            data-aos='fade-right'
-            data-aos-delay='200'
             onMouseEnter={() => setVeh(true)}
             onMouseLeave={() => setVeh(false)}
           >
             <div className='grid grid-cols-3 w-full   rounded container mx-auto p-4 pt-10'>
-              <div className='col-span-1 border border-gray-600   '>
-                <div className='border-b border-gray-600 p-4  h-1/3'><span className='underline text-2xl  underline-offset-4'> Book Now</span> <br /> <span className='text-4xl font-sans '>135 KM/H</span> </div>
-                <div className='border-b border-gray-600 p-4 h-1/3'><span className='underline text-2xl  underline-offset-4'> Max Speed</span> <br /> <span className='text-4xl font-sans '>135 KM/H</span> </div>
-                <div className=' h-1/3 p-4'><span className='underline text-2xl  underline-offset-4'> Max Speed</span> <br /> <span className='text-4xl font-sans '>135 KM/H</span> </div>
+              <div
+                className='col-span-1 border border-gray-600  z-10 -mr-44 ml-44 '
+                data-aos='zoom-out'
+                data-aos-delay='500'
+                data-aos-duration='500'
+              >
+                <div className='border-b border-gray-600 p-4  h-1/3'>
+                  <span className='underline underline-offset-4 text-2xl'>
+                    Max Power (bhp@rpm)
+                  </span>
+                  <br />
+                  <span className='text-4xl font-mono'>103.39bhp@6000rpm</span>
+                </div>
+                <div className='border-b border-gray-600 p-4 h-1/3'>
+                  <span className='underline text-2xl  underline-offset-4'>
+                    Max Speed
+                  </span>
+                  <br /> <span className='text-4xl font-sans '>135 KM/H</span>
+                </div>
+                <div className=' h-1/3 p-4'>
+                  <span className='underline text-2xl  underline-offset-4'>
+                    Max Speed
+                  </span>
+                  <br /> <span className='text-4xl font-sans '>135 KM/H</span>
+                </div>
               </div>
               <div className='col-span-2 '>
                 <div
-                  className='object-cover '
-                  data-aos='zoom-in'
-                  data-aos-delay='500'
+                  className='object-cover  '
+                  data-aos='fade-left'
+                  // data-aos-delay='500'
+                  data-aos-duration='2000'
                 >
                   <img
                     src={JimnyImg}
                     alt=''
                     srcset=''
-                    className=' h-full w-full border-gray-600   '
+                    className=' w-[80%] border-gray-600   '
                   />
                 </div>
-                <div className='h-32 border-y border-gray-600 flex '>
-                  <div className='w-1/2 text-2xl font-mono p-2'><span className='underline underline-offset-4'> Max Speed</span> <br /> <span className='text-4xl font-sans '>135 KM/H</span> </div>
-                  <div className='w-1/2 border-x border-gray-600 text-2xl font-serif p-2 '> <span className='underline underline-offset-4'> Max Power (bhp@rpm)</span> <br /> <span className='text-4xl font-mono'>103.39bhp@6000rpm</span> </div>
+                <div
+                  className='h-32  flex '
+                  data-aos='zoom-out'
+                  data-aos-delay='500'
+                  data-aos-duration='500'
+                >
+                  <div className='w-1/2 text-3xl font-mono p-2 ml-44 border-y border-gray-600 flex justify-center items-center'>
+                    Enquir Now
+                  </div>
+                  <div className='w-1/2 border border-gray-600 text-2xl p-2 flex justify-center items-center '>
+                    <span className='pr-3'>Book Now</span>
+                    <AiOutlineRightCircle className='text-4xl animate-pulse' />
+                  </div>
                 </div>
               </div>
             </div>
