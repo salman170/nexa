@@ -3,19 +3,24 @@ import { Link } from 'react-router-dom';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 // import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 
+import JimnyImg from '../../assets/2019-Suzuki-Jimny-1.png';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Header = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   // const [open, setOpen] = useState(false);
   // const [heading, setHeading] = useState('');
   // const [subHeading, setSubHeading] = useState('');
   const [open, setOpen] = useState(false);
-  const [color, setColor] = useState(false);
+
   const [scrollTop, setScrollTop] = useState(0);
+  const [veh, setVeh] = useState(false);
   const onScroll = () => {
-    if (window.scrollY >= 150) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
     const winScroll = document.documentElement.scrollTop;
     const height =
       document.documentElement.scrollHeight -
@@ -31,23 +36,52 @@ const Header = () => {
   });
 
   const carLinks = [
-    { name: 'Fronx', link: 'maruti-fronx-price-in-hyderabad' },
-    { name: 'Jimny', link: 'maruti-jimny-price-in-hyderabad' },
-    { name: 'Grand Vitara', link: 'grand-vitara-on-road-price-in-hyderabad' },
-    { name: 'XL6', link: 'nexa-xl6-on-road-price-in-hyderabad' },
-    { name: 'Ciaz', link: 'nexa-ciaz-on-road-price-in-hyderabad' },
-    { name: 'Baleno', link: 'new-maruti-baleno-price-in-hyderabad' },
-    { name: 'Ignis', link: 'nexa-ignis-on-road-price-in-hyderabad' },
+    {
+      name: 'Fronx',
+      link: 'maruti-fronx-price-in-hyderabad',
+      heading: 'Created to Inspire Style and Performance.',
+    },
+    {
+      name: 'Jimny',
+      link: 'maruti-jimny-price-in-hyderabad',
+      heading: 'Functional Beauty Crafted for Purity of Function.',
+    },
+    {
+      name: 'Grand Vitara',
+      link: 'grand-vitara-on-road-price-in-hyderabad',
+      heading: 'Create Inspire.',
+    },
+    {
+      name: 'XL6',
+      link: 'nexa-xl6-on-road-price-in-hyderabad',
+      heading: 'Created to Inspire Indulgence.',
+    },
+    {
+      name: 'Ciaz',
+      link: 'nexa-ciaz-on-road-price-in-hyderabad',
+      heading: 'Created to Inspire Elegance.',
+    },
+    {
+      name: 'Baleno',
+      link: 'new-maruti-baleno-price-in-hyderabad',
+      heading: 'Created to Inspire The Bold and Intelligent.',
+    },
+    {
+      name: 'Ignis',
+      link: 'nexa-ignis-on-road-price-in-hyderabad',
+      heading: 'Created to Inspire The Toughness in You.',
+    },
   ];
 
   return (
     <>
       <div
-        className={` fixed w-full isolate   z-10  ${
-          color ? 'bg-[#0D0D0D80] text-white' : 'text-white'
-        }`}
+        className={` fixed w-full isolate bg-[#0c0c0ce8]  z-10  text-white`}
+        // className={` fixed w-full isolate bg-[#0c0c0cb6]  z-10  ${
+        //   color ? 'bg-[#0D0D0D80] text-white' : 'text-white'
+        // }`}
       >
-        <div className='h-20  lg:flex justify-between px-4 xl:px-8 items-center  '>
+        <div className='h-20  lg:flex justify-between px-4 xl:px-8 items-center '>
           <div className='flex pt-4 lg:pt-0 justify-between items-center'>
             <Link to='/'>
               <img
@@ -61,17 +95,40 @@ const Header = () => {
               className='p-3 text-3xl lg:hidden md:p-5'
               onClick={() => setOpen(!open)}
             >
-              {open ? <AiOutlineClose className='text-2xl' /> : <AiOutlineMenu className='text-2xl' />}
+              {open ? (
+                <AiOutlineClose className='text-2xl' />
+              ) : (
+                <AiOutlineMenu className='text-2xl' />
+              )}
             </div>
           </div>
-          <div className='transition-all duration-100 hidden lg:block'>
+          <div className='transition-all duration-1000 hidden lg:flex '>
             {carLinks.map((car, index) => (
-              <Link
-                className='p-4 hover:bg-gray-500  rounded-md  '
-                to={car.link}
+              <div
+                className='group'
+                onClick={() => setVeh(!veh)}
+                onMouseEnter={() => setVeh(true)}
+                onMouseLeave={() => setVeh(false)}
               >
-                {car.name}
-              </Link>
+                <div>
+                  <Link
+                    className='p-4 group hover:bg-gray-500  rounded-md  '
+                    to={car.link}
+                  >
+                    {car.name}
+                  </Link>
+                </div>
+                {/* <div className='absolute top-20 h-80 left-1/3 bg-black hidden rounded-2xl hover:md:block group-hover:md:flex p-4 w-1/2'>
+                  <div>
+                    <div>
+                      <span>{car.heading}</span>
+                    </div>
+                  </div>
+                  <div>
+                    <img src={JimnyImg} alt='' srcset='' />
+                  </div>
+                </div> */}
+              </div>
             ))}
           </div>
           <div className='p-2 hidden lg:block'>
@@ -82,16 +139,61 @@ const Header = () => {
               <li className='p-2 hover:bg-gray-500 transition-colors duration-500 rounded-md'>
                 More
               </li>
-              <li className='p-2 ml-4 hover:bg-gray-500 transition-colors duration-500 rounded-md'  onClick={() => setOpen(!open)}>
-              {open ? <AiOutlineClose className='text-2xl' /> : <AiOutlineMenu className='text-2xl' />}
+              <li
+                className='p-2 ml-4 hover:bg-gray-500 transition-colors duration-500 rounded-md'
+                onClick={() => setOpen(!open)}
+              >
+                {open ? (
+                  <AiOutlineClose className='text-2xl' />
+                ) : (
+                  <AiOutlineMenu className='text-2xl' />
+                )}
               </li>
             </ul>
           </div>
         </div>
-        <div
-          className=' bg-red-500 h-1   '
-          style={{ width: `${scrollTop}%` }}
-        ></div>
+        {!veh && (
+          <div
+            className=' bg-red-500 h-1   '
+            style={{ width: `${scrollTop}%` }}
+          ></div>
+        )}
+
+        {veh && (
+          <div
+            className='w-full grid  border-gray-200 duration-150 -mt-6  '
+            data-aos='fade-right'
+            data-aos-delay='200'
+            onMouseEnter={() => setVeh(true)}
+            onMouseLeave={() => setVeh(false)}
+          >
+            <div className='grid grid-cols-3 w-full   rounded container mx-auto p-4 pt-10'>
+              <div className='col-span-1 border border-gray-600   '>
+                <div className='border-b border-gray-600 p-4  h-1/3'><span className='underline text-2xl  underline-offset-4'> Book Now</span> <br /> <span className='text-4xl font-sans '>135 KM/H</span> </div>
+                <div className='border-b border-gray-600 p-4 h-1/3'><span className='underline text-2xl  underline-offset-4'> Max Speed</span> <br /> <span className='text-4xl font-sans '>135 KM/H</span> </div>
+                <div className=' h-1/3 p-4'><span className='underline text-2xl  underline-offset-4'> Max Speed</span> <br /> <span className='text-4xl font-sans '>135 KM/H</span> </div>
+              </div>
+              <div className='col-span-2 '>
+                <div
+                  className='object-cover '
+                  data-aos='zoom-in'
+                  data-aos-delay='500'
+                >
+                  <img
+                    src={JimnyImg}
+                    alt=''
+                    srcset=''
+                    className=' h-full w-full border-gray-600   '
+                  />
+                </div>
+                <div className='h-32 border-y border-gray-600 flex '>
+                  <div className='w-1/2 text-2xl font-mono p-2'><span className='underline underline-offset-4'> Max Speed</span> <br /> <span className='text-4xl font-sans '>135 KM/H</span> </div>
+                  <div className='w-1/2 border-x border-gray-600 text-2xl font-serif p-2 '> <span className='underline underline-offset-4'> Max Power (bhp@rpm)</span> <br /> <span className='text-4xl font-mono'>103.39bhp@6000rpm</span> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
