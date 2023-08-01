@@ -1,5 +1,6 @@
 import React from 'react';
 import jimnyVideo from '../../assets/JIM.webm';
+import Slider from './Slider';
 // import JimnyBanner from '../../assets/Jimny_HeaderBanner_1500x634 webp.webp';
 
 const Homepage = () => {
@@ -22,122 +23,12 @@ const Homepage = () => {
             src='https://stimg.cardekho.com/images/carexteriorimages/930x620/Maruti/Jimny/6182/1686117643111/front-left-side-47.jpg?impolicy=resize&imwidth=420'
             alt=''
             srcset=''
-            className='object-cover w-full h-full'
+            className='object-cover w-full h-full lg:hidden'
           />
         </div>
-        <div className=' top-0 left-0 w-full h-screen '>
-          <video
-            className='w-full h-full object-cover'
-            preload='metadata'
-            loop
-            autoPlay
-            playsInline
-            muted
-          >
-            <source
-              src='https://maserati.scene7.com/is/content/maserati/maserati/international/Models/my22/grecale/my22/video/grecale_background_video.mp4'
-              type='video/mp4'
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className=' top-0 left-0 w-full h-screen '>
-          <video
-            className='w-full h-full object-cover'
-            preload='metadata'
-            loop
-            autoPlay
-            playsInline
-            muted
-          >
-            <source
-              src='https://maserati.scene7.com/is/content/maserati/maserati/international/Models/my22/grecale/my22/video/grecale_background_video.mp4'
-              type='video/mp4'
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className=' top-0 left-0 w-full h-screen '>
-          <video
-            className='w-full h-full object-cover'
-            preload='metadata'
-            loop
-            autoPlay
-            playsInline
-            muted
-          >
-            <source
-              src='https://maserati.scene7.com/is/content/maserati/maserati/international/Models/my22/grecale/my22/video/grecale_background_video.mp4'
-              type='video/mp4'
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className=' top-0 left-0 w-full h-screen '>
-          <video
-            className='w-full h-full object-cover'
-            preload='metadata'
-            loop
-            autoPlay
-            playsInline
-            muted
-          >
-            <source
-              src='https://maserati.scene7.com/is/content/maserati/maserati/international/Models/my22/grecale/my22/video/grecale_background_video.mp4'
-              type='video/mp4'
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className=' top-0 left-0 w-full h-screen '>
-          <video
-            className='w-full h-full object-cover'
-            preload='metadata'
-            loop
-            autoPlay
-            playsInline
-            muted
-          >
-            <source
-              src='https://maserati.scene7.com/is/content/maserati/maserati/international/Models/my22/grecale/my22/video/grecale_background_video.mp4'
-              type='video/mp4'
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        <div className=' top-0 left-0 w-full h-screen '>
-          <video
-            className='w-full h-full object-cover'
-            preload='metadata'
-            loop
-            autoPlay
-            playsInline
-            muted
-          >
-            <source
-              src='https://maserati.scene7.com/is/content/maserati/maserati/international/Models/my22/grecale/my22/video/grecale_background_video.mp4'
-              type='video/mp4'
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className=' top-0 left-0 w-full h-screen '>
-          <video
-            className='w-full h-full object-cover'
-            preload='metadata'
-            loop
-            autoPlay
-            playsInline
-            muted
-          >
-            <source
-              src='https://maserati.scene7.com/is/content/maserati/maserati/international/Models/my22/grecale/my22/video/grecale_background_video.mp4'
-              type='video/mp4'
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        
+<Slider/>
+       
       </div>
     </>
   );

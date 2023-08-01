@@ -34,7 +34,7 @@ const Footer = () => {
         </div>
         <div className='grid w-full justify-center  border-y border-gray-500 my-5 lg:my-10 py-10 gap-4 text-center  md:grid-cols-4  md:gap-2 md:text-left '>
           <div className='flex flex-col lg:flex-row  justify-around'>
-            <div>
+            <div className=''>
               <div className='pt-1 '>
                 <Link to='/' className='hover:text-red-600'>
                   XL6

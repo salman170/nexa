@@ -158,7 +158,7 @@ const Header = () => {
         </div>
         {!veh && (
           <div
-            className=' bg-gray-100 h-0.5   '
+            className=' bg-red-500 h-0.5   '
             style={{ width: `${scrollTop}%` }}
           ></div>
         )}
